@@ -1,0 +1,56 @@
+--select distinct:
+
+select distinct e_gender from employee
+
+--WHERE clause:
+
+select *from employee where e_salary>100000
+
+--AND operator:
+select *from employee where e_gender='male' AND e_dept='analyst'
+
+--OR operator:
+select *from employee where e_gender='female' OR e_salary>100000;
+
+--NOT operator:
+select *from employee where NOT e_gender='female';
+
+--LIKE operator:
+select *from employee where e_age LIKE '4_'
+
+--BETWEEN:
+select *from employee where e_salary between 80000 and 120000
+
+
+--MIN
+select MIN(e_salary) from employee;
+
+--COUNT
+select count (*)from employee where e_age>40;
+
+--SUM
+select SUM(e_salary) from employee
+
+--AVG
+select AVG(e_age) from employee
+
+--Order By
+select e_age from employee order by e_age asc
+
+--TOP x
+select top 3 *from employee where e_age<40
+
+--Group By
+select avg(e_age), e_gender from employee group by e_gender
+
+--Having clause:
+select e_dept, avg(e_salary) from employee
+group by e_dept having avg(e_salary) >30000;
+
+--Update
+update employee set e_age=30 where e_name= 'kavya';
+
+--JOINS: --inner join, Outer and Full joins are same with 'outer' & 'full' instead of 'inner' in the query. 
+
+select employee.e_name, employee.e_dept, department.d_name, department.d_location
+from employee inner join department on employee.e_dept=department.d_name
